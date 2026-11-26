@@ -38,10 +38,10 @@ h3{font-size:1.2rem}
 .header{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(255,255,255,.88);backdrop-filter:blur(14px);transition:.3s}
 .header.scrolled{box-shadow:0 4px 24px rgba(15,27,61,.08)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:76px}
-.brand{display:flex;align-items:center;gap:12px}
+.brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
 .brand-mark{font-family:'Manrope',sans-serif;font-weight:800;font-size:2rem;letter-spacing:-.02em;line-height:1}
 .brand-mark .b{color:var(--navy)} .brand-mark .r{color:var(--red)}
-.brand-sub{font-size:.62rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#6b7280;line-height:1.25;padding-left:12px;border-left:2px solid #6b7280}
+.brand-sub{font-size:.62rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#6b7280;line-height:1.25;padding-left:12px;border-left:2px solid #6b7280;white-space:nowrap}
 .brand-light .brand-mark .b{color:#fff} .brand-light .brand-sub{color:#cdd6f0;border-color:#cdd6f0}
 .menu{display:flex;align-items:center;gap:30px;font-weight:600;font-size:.93rem}
 .menu a:not(.btn){position:relative;color:var(--ink)}
@@ -198,10 +198,18 @@ input.invalid{border-color:var(--red)}
 @media (max-width:640px){
   .section{padding:72px 0}
   .cards,.gallery,.steps{grid-template-columns:1fr}
-  .brand-sub{display:none}
   .footer-grid{grid-template-columns:1fr}
   .form{padding:24px}
   .map{height:300px}
   body{padding-bottom:70px}
   .callbar{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 4%;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);box-shadow:0 -6px 24px rgba(15,27,61,.12)}
+
+  /* Keep the full logo on phones, just scaled down */
+  .brand{gap:8px}
+  .brand-mark{font-size:1.6rem}
+  .brand-sub{font-size:.5rem;letter-spacing:.1em;padding-left:8px;border-left-width:2px}
+}
+@media (max-width:360px){
+  .brand-mark{font-size:1.4rem}
+  .brand-sub{font-size:.46rem;padding-left:6px}
 }
